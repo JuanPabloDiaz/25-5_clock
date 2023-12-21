@@ -2,11 +2,11 @@
 
 # 25 + 5 Clock
 
-This simple project is a responsive web application that allows users to ...
+This project is a responsive web application that allows users to use a pomodoro timer to break down work into intervals, traditionally 25 minutes in length, separated by short breaks. Thats why is called 25 + 5 clock
 
 ## Description 💡
 
-This project was built as part of the [freeCodeCamp](https://www.freecodecamp.org/) Front End Libraries Certification. The goal was to build a markdown previewer that meets the following user stories:
+This project is a 25 + 5 clock, which is a time management system that encourages people to work with the time they have—rather than against it. Using this method, you break your workday into 25-minute chunks separated by five-minute breaks. These intervals are referred to as pomodoros.
 
 <div align="center">
 
