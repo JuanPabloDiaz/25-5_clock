@@ -83,7 +83,9 @@ function App() {
             <div className="flex justify-around items-center m-2 p-2 border rounded-lg transition duration-100 gap-4">
               <button
                 id="break-decrement"
-                onClick={() => setBreakLength((prev) => prev - 1)}
+                onClick={() =>
+                  setBreakLength((prev) => (prev > 1 ? prev - 1 : prev))
+                }
                 className=" hover:text-slate-500 transition duration-100"
               >
                 <FaMinus className="w-6 h-6" />
@@ -110,7 +112,9 @@ function App() {
             <div className="flex justify-around items-center m-2 p-2 border rounded-lg transition duration-100 gap-4">
               <button
                 id="session-decrement"
-                onClick={() => setSessionLength((prev) => prev - 1)}
+                onClick={() =>
+                  setSessionLength((prev) => (prev > 1 ? prev - 1 : prev))
+                }
                 className=" hover:text-slate-500 transition duration-100"
               >
                 <FaMinus className="w-6 h-6" />
