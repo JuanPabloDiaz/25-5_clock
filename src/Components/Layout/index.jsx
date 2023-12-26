@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 const Layout = ({ children }) => {
   return (
-    <div className="flex flex-col justify-center items-center w-screen h-screen bg-[#1D2B53] text-[#C6DAF1] gap-6">
+    <div className="flex flex-col justify-center items-center w-screen h-screen bg-[#98C1D9] gap-6">
       {/* Colors:           colors: #1D2B53 #354274 #4E5A95 #6871B6 */}
 
       {children}

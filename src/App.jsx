@@ -26,10 +26,14 @@ function App() {
       setTimerRunning(false);
     } else {
       const id = setInterval(() => {
-        setTimeLeft((timeLeft) => timeLeft - 1);
-        setTimerRunning(true);
+        setTimeLeft((prevTimeLeft) => {
+          if (prevTimeLeft > 0) return prevTimeLeft - 1;
+          clearInterval(id);
+          return 0;
+        });
       }, 1000);
       setIntervalId(id);
+      setTimerRunning(true);
     }
   };
 
@@ -43,74 +47,102 @@ function App() {
   };
 
   useEffect(() => {
-    if (timeLeft === 0 && timerLabel === "Session") {
-      setTimerLabel("Break");
-      setTimeLeft(breakLength * 60);
-    } else if (timeLeft === 0 && timerLabel === "Break") {
-      setTimerLabel("Session");
-      setTimeLeft(sessionLength * 60);
+    if (timeLeft === 0) {
+      document.getElementById("beep").play();
+      clearInterval(intervalId);
+      if (timerLabel === "Session") {
+        setTimerLabel("Break");
+        setTimeLeft(breakLength * 60);
+      } else if (timerLabel === "Break") {
+        setTimerLabel("Session");
+        setTimeLeft(sessionLength * 60);
+      }
     }
-  }, [timeLeft, timerLabel, breakLength, sessionLength]);
+  }, [timeLeft, timerLabel, breakLength, sessionLength, intervalId]);
 
   return (
     <>
       <Layout>
-        <div className="text-4xl border p-4 rounded-xl">
-          <h1 className="">25 + 5 Clock</h1>
+        <div className="p-4 rounded-lg bg-black">
+          <h1 className="text-[#FFD23F] text-5xl font-extrabold">
+            25 + 5 Clock
+          </h1>
         </div>
-        <div className="flex justify-around items-center gap-3">
-          <section id="break" className="bg-gray-600 p-10">
+        <div className="flex justify-around items-center gap-6 w-6/12">
+          <section
+            id="break"
+            className="flex flex-col justify-center items-center gap-4 w-3/6 bg-[#1D2B53] text-[#C6DAF1] rounded-lg p-10"
+          >
             <div id="break-label">
-              <h2 className="text-2xl">Break Length</h2>
+              <h2 className="font-bold text-2xl">Break Length</h2>
             </div>
-            <div id="break-length">{breakLength}</div>
+            <div id="break-length" className="font-medium text-4xl">
+              {breakLength}
+            </div>
 
-            <div className="flex justify-around items-center m-2 p-2 border rounded-lg bg-slate-600 hover:bg-slate-500 transition duration-100">
+            <div className="flex justify-around items-center m-2 p-2 border rounded-lg transition duration-100 gap-4">
               <button
                 id="break-decrement"
                 onClick={() => setBreakLength((prev) => prev - 1)}
+                className=" hover:text-slate-500 transition duration-100"
               >
                 <FaMinus className="w-6 h-6" />
               </button>
               <button
                 id="break-increment"
                 onClick={() => setBreakLength((prev) => prev + 1)}
+                className=" hover:text-slate-500 transition duration-100"
               >
-                <FaPlus />
+                <FaPlus className="w-6 h-6" />
               </button>
             </div>
           </section>
-          <section id="session" className="bg-gray-600 p-10">
+          <section
+            id="session"
+            className="flex flex-col justify-center items-center gap-4 w-3/6 bg-[#1D2B53] text-[#C6DAF1] p-10 rounded-lg"
+          >
             <div id="session-label">
-              <h2 className="text-2xl">Session Length</h2>
+              <h2 className="font-bold text-2xl">Session Length</h2>
             </div>
-            <div id="session-length">{sessionLength}</div>
-            <div className="flex justify-around items-center">
+            <div id="session-length" className="font-medium text-4xl">
+              {sessionLength}
+            </div>
+            <div className="flex justify-around items-center m-2 p-2 border rounded-lg transition duration-100 gap-4">
               <button
                 id="session-decrement"
                 onClick={() => setSessionLength((prev) => prev - 1)}
+                className=" hover:text-slate-500 transition duration-100"
               >
-                <FaMinus />
+                <FaMinus className="w-6 h-6" />
               </button>
               <button
                 id="session-increment"
                 onClick={() => setSessionLength((prev) => prev + 1)}
+                className=" hover:text-slate-500 transition duration-100"
               >
-                <FaPlus />
+                <FaPlus className="w-6 h-6" />
               </button>
             </div>
           </section>
         </div>
-        <section>
-          <div id="timer-label">{timerLabel}</div>
-          <div id="time-left">{formatTime(timeLeft)}</div>
+        <section className="flex flex-col justify-center items-center gap-4 w-2/6 bg-[#1D2B53] text-[#C6DAF1] p-10 rounded-lg">
+          <div id="timer-label" className="font-bold text-2xl">
+            {timerLabel}
+          </div>
+          <div id="time-left" className="font-medium text-4xl">
+            {formatTime(timeLeft)}
+          </div>
         </section>
-        <div className="flex justify-around items-center w-20 ">
+        <section className="flex justify-around items-center w-20 text-[#1D2B53] gap-4">
           <button id="start_stop" onClick={handleStartStop}>
-            {timerRunning ? <FaStop /> : <FaPlay />}
+            {timerRunning ? (
+              <FaStop className="w-10 h-10" />
+            ) : (
+              <FaPlay className="w-10 h-10" />
+            )}
           </button>
           <button id="reset" onClick={handleReset}>
-            <MdLoop />
+            <MdLoop className="w-10 h-10" />
           </button>
 
           <div>
@@ -119,7 +151,7 @@ function App() {
               src="https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav"
             ></audio>
           </div>
-        </div>
+        </section>
       </Layout>
     </>
   );
