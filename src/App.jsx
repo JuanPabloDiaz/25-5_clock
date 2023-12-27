@@ -81,17 +81,17 @@ function App() {
     }
   }, [sessionLength, breakLength, timerLabel]);
 
-  useEffect(() => {
-    if (!timerRunning) {
-      // if timer is not running
-      if (timerLabel === "Session") {
-        // if session is running
-        setTimeLeft(sessionLength * 60); // set time left to value of session length
-      } else {
-        setTimeLeft(breakLength * 60); // set time left to value of break length
-      }
-    }
-  }, [sessionLength, breakLength, timerRunning, timerLabel]);
+  // useEffect(() => {
+  //   if (!timerRunning) {
+  //     // if timer is not running
+  //     if (timerLabel === "Session") {
+  //       // if session is running
+  //       setTimeLeft(sessionLength * 60); // set time left to value of session length
+  //     } else {
+  //       setTimeLeft(breakLength * 60); // set time left to value of break length
+  //     }
+  //   }
+  // }, [sessionLength, breakLength, timerRunning, timerLabel]);
 
   return (
     <>
