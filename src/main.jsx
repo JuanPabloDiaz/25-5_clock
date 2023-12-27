@@ -5,7 +5,7 @@ import Footer from "./Components/Footer.jsx";
 import "./index.css";
 
 // Disable scroll
-// document.body.style.overflow = "hidden";
+document.body.style.overflow = "hidden";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
