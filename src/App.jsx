@@ -101,13 +101,15 @@ function App() {
             25 + 5 Clock
           </h1>
         </div>
-        <div className="flex justify-around items-center gap-6 w-6/12">
+        <div className="flex justify-around items-center gap-2 sm:gap-3 md:gap-4 lg:gap-6 w-6/12">
           <section
             id="break"
-            className="flex flex-col justify-center items-center gap-4 w-3/6 h-4/5 bg-[#1D2B53] text-[#C6DAF1] rounded-lg p-10"
+            className="flex flex-col justify-center items-center gap-2 sm:gap-3 md:gap-4 w-3/6 h-4/5 min-w-min bg-[#1D2B53] text-[#C6DAF1] p-6 md:p-10 rounded-lg"
           >
             <div id="break-label">
-              <h2 className="font-bold text-2xl">Break Length</h2>
+              <h2 className="font-bold text-lg md:text-xl lg:text-2xl whitespace-nowrap">
+                Break Length
+              </h2>
             </div>
             <div id="break-length" className="font-medium text-4xl">
               {breakLength}
@@ -136,10 +138,12 @@ function App() {
           </section>
           <section
             id="session"
-            className="flex flex-col justify-center items-center gap-4 w-3/6 h-4/5 bg-[#1D2B53] text-[#C6DAF1] p-10 rounded-lg"
+            className="flex flex-col justify-center items-center gap-2 sm:gap-3 md:gap-4 w-3/6 h-4/5 min-w-min bg-[#1D2B53] text-[#C6DAF1] p-6 md:p-10 rounded-lg"
           >
             <div id="session-label">
-              <h2 className="font-bold text-2xl">Session Length</h2>
+              <h2 className="font-bold text-lg md:text-xl lg:text-2xl whitespace-nowrap">
+                Session Length
+              </h2>
             </div>
             <div id="session-length" className="font-medium text-4xl">
               {sessionLength}
