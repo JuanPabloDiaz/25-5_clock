@@ -8,10 +8,12 @@ This project is a responsive web application that allows users to use a pomodoro
 
 This project is a 25 + 5 clock, which is a time management system that encourages people to work with the time they have—rather than against it. Using this method, you break your workday into 25-minute chunks separated by five-minute breaks. These intervals are referred to as pomodoros.
 
+This project was built as part of the **[freeCodeCamp Front End Libraries Certification](https://www.freecodecamp.org/certification/1diazdev/front-end-development-libraries)**. The goal was to build a 25 + 5 clock with React.
+
 <div align="center">
 
 [![markdownPreviewer](https://img.shields.io/badge/View%20Demo-000?style=for-the-badge&logo=Google-Chrome&logoColor=white)](https://markdown.jpdiaz.dev/)
-[![repo](https://img.shields.io/badge/View%20Code-000?style=for-the-badge&logo=GitHub&logoColor=white)](https://pr.new/github.com/JuanPabloDiaz/markdownPreviewer)
+[![repo](https://img.shields.io/badge/View%20Code-000?style=for-the-badge&logo=GitHub&logoColor=white)](https://pr.new/github.com/JuanPabloDiaz/25-5_clock)
 
 </div>
 
