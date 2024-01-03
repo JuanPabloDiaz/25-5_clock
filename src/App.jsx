@@ -96,87 +96,87 @@ function App() {
   return (
     <>
       <Layout>
-        <div className="p-4 rounded-lg bg-black">
-          <h1 className="text-[#FFD23F] text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold">
+        <div className="rounded-lg bg-black p-4">
+          <h1 className="text-3xl font-extrabold text-[#FFD23F] sm:text-3xl md:text-4xl lg:text-5xl">
             25 + 5 Clock
           </h1>
         </div>
-        <div className="flex justify-around items-center gap-2 sm:gap-3 md:gap-4 lg:gap-6 w-6/12">
+        <div className="flex w-6/12 items-center justify-around gap-2 sm:gap-3 md:gap-4 lg:gap-6">
           <section
             id="break"
-            className="flex flex-col justify-center items-center gap-2 sm:gap-3 md:gap-4 w-3/6 h-4/5 min-w-min bg-[#1D2B53] text-[#C6DAF1] p-6 md:p-10 rounded-lg"
+            className="flex h-4/5 w-3/6 min-w-min flex-col items-center justify-center gap-2 rounded-lg bg-[#1D2B53] p-6 text-[#C6DAF1] sm:gap-3 md:gap-4 md:p-10"
           >
             <div id="break-label">
-              <h2 className="font-bold text-lg md:text-xl lg:text-2xl whitespace-nowrap">
+              <h2 className="whitespace-nowrap text-lg font-bold md:text-xl lg:text-2xl">
                 Break Length
               </h2>
             </div>
-            <div id="break-length" className="font-medium text-4xl">
+            <div id="break-length" className="text-4xl font-medium">
               {breakLength}
             </div>
 
-            <div className="flex justify-around items-center m-2 p-2 border rounded-lg transition duration-100 gap-4">
+            <div className="m-2 flex items-center justify-around gap-4 rounded-lg border p-2 transition duration-100">
               <button
                 id="break-decrement"
                 onClick={() =>
                   setBreakLength((prev) => (prev > 1 ? prev - 1 : prev))
                 }
-                className=" hover:text-slate-500 transition duration-100"
+                className=" transition duration-100 hover:text-slate-500"
               >
-                <FaMinus className="w-6 h-6" />
+                <FaMinus className="h-6 w-6" />
               </button>
               <button
                 id="break-increment"
                 onClick={() =>
                   setBreakLength((prev) => (prev < 60 ? prev + 1 : prev))
                 }
-                className=" hover:text-slate-500 transition duration-100"
+                className=" transition duration-100 hover:text-slate-500"
               >
-                <FaPlus className="w-6 h-6" />
+                <FaPlus className="h-6 w-6" />
               </button>
             </div>
           </section>
           <section
             id="session"
-            className="flex flex-col justify-center items-center gap-2 sm:gap-3 md:gap-4 w-3/6 h-4/5 min-w-min bg-[#1D2B53] text-[#C6DAF1] p-6 md:p-10 rounded-lg"
+            className="flex h-4/5 w-3/6 min-w-min flex-col items-center justify-center gap-2 rounded-lg bg-[#1D2B53] p-6 text-[#C6DAF1] sm:gap-3 md:gap-4 md:p-10"
           >
             <div id="session-label">
-              <h2 className="font-bold text-lg md:text-xl lg:text-2xl whitespace-nowrap">
+              <h2 className="whitespace-nowrap text-lg font-bold md:text-xl lg:text-2xl">
                 Session Length
               </h2>
             </div>
-            <div id="session-length" className="font-medium text-4xl">
+            <div id="session-length" className="text-4xl font-medium">
               {sessionLength}
             </div>
-            <div className="flex justify-around items-center m-2 p-2 border rounded-lg transition duration-100 gap-4">
+            <div className="m-2 flex items-center justify-around gap-4 rounded-lg border p-2 transition duration-100">
               <button
                 id="session-decrement"
                 onClick={() =>
                   setSessionLength((prev) => (prev > 1 ? prev - 1 : prev))
                 }
-                className=" hover:text-slate-500 transition duration-100"
+                className=" transition duration-100 hover:text-slate-500"
               >
-                <FaMinus className="w-6 h-6" />
+                <FaMinus className="h-6 w-6" />
               </button>
               <button
                 id="session-increment"
                 onClick={() =>
                   setSessionLength((prev) => (prev < 60 ? prev + 1 : prev))
                 }
-                className=" hover:text-slate-500 transition duration-100"
+                className=" transition duration-100 hover:text-slate-500"
               >
-                <FaPlus className="w-6 h-6" />
+                <FaPlus className="h-6 w-6" />
               </button>
             </div>
           </section>
         </div>
-        <section className="flex flex-col justify-center items-center gap-4 w-2/6 min-w-min bg-[#1D2B53] text-[#C6DAF1] p-10 rounded-lg">
-          <h2 id="timer-label" className="font-bold text-2xl md:text-4xl">
+        <section className="flex w-2/6 min-w-min flex-col items-center justify-center gap-4 rounded-lg bg-[#1D2B53] p-10 text-[#C6DAF1]">
+          <h2 id="timer-label" className="text-2xl font-bold md:text-4xl">
             {timerLabel}
           </h2>
           <h3
             id="time-left"
-            className={`font-medium text-5xl sm:text-6xl md:text-7xl lg:text-8xl transition-colors duration-500 ${
+            className={`text-5xl font-medium transition-colors duration-500 sm:text-6xl md:text-7xl lg:text-8xl ${
               timerRunning
                 ? timerLabel === "Session"
                   ? "text-[#9FEFBC]"
@@ -187,20 +187,20 @@ function App() {
             {formatTime(timeLeft)}
           </h3>
         </section>
-        <section className="flex justify-around items-center w-20 text-[#1D2B53] gap-4">
+        <section className="flex w-20 items-center justify-around gap-4 text-[#1D2B53]">
           <button id="start_stop" onClick={handleStartStop}>
             {timerRunning ? (
-              <FaStop className="w-10 h-10" />
+              <FaStop className="h-10 w-10" />
             ) : (
-              <FaPlay className="w-10 h-10 hover:text-slate-500 transition duration-100" />
+              <FaPlay className="h-10 w-10 transition duration-100 hover:text-slate-500" />
             )}
           </button>
           <button
             id="reset"
             onClick={handleReset}
-            className="hover:text-slate-500 transition duration-100"
+            className="transition duration-100 hover:text-slate-500"
           >
-            <MdLoop className="w-10 h-10" />
+            <MdLoop className="h-10 w-10" />
           </button>
 
           <div>
