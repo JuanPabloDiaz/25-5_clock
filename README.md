@@ -29,6 +29,10 @@ This project was built as part of the **[freeCodeCamp Front End Libraries Certif
 
 <img src="./src/assets/images/phone.png" width="250" />
 
+### Lighthouse Score 🚀
+
+<img src="./src/assets/images/lighthouse.png" />
+
 ## Features:
 
 - Responsive design: [25 + 5 Clock](https://25.jpdiaz.dev) adapts to any screen size, ensuring a consistent and enjoyable experience for all users.
